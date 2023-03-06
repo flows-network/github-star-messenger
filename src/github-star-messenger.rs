@@ -14,7 +14,7 @@ pub async fn run() -> anyhow::Result<()> {
 
 async fn handler(repo: &str, payload: EventPayload) {
     let sender_email_address: &str = "jaykchen@gmail.com";
-    let receiver_email_address: &str = "jaykchen@gmail.com";
+    let receiver_email_address: &str = "achenics@gmail.com";
 
     if let EventPayload::UnknownEvent(e) = payload {
         let stargazers_count = e["repository"]["stargazers_count"].as_i64().unwrap_or(-1);
