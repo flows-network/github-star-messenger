@@ -4,10 +4,14 @@ use sendgrid_flows::{send_email, Email};
 #[no_mangle]
 #[tokio::main(flavor = "current_thread")]
 pub async fn run() -> anyhow::Result<()> {
+    let login: &str = "jaykchen";
     let owner: &str = "jaykchen";
     let repo: &str = "a-test";
 
-    listen_to_event(owner, repo, vec!["star"], |payload| handler(repo, payload)).await;
+    listen_to_event(login, owner, repo, vec!["star"], |payload| {
+        handler(repo, payload)
+    })
+    .await;
 
     Ok(())
 }
